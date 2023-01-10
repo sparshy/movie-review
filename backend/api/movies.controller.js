@@ -22,6 +22,6 @@ export default class MoviesController{
             entries_per_page: moviesPerPage,
             total_results: totalNumMovies
         }
-        res.send(response);
+        res.json(response);
     }
 }

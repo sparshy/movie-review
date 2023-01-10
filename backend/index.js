@@ -2,6 +2,7 @@ import app from './server.js';
 import mongodb from "mongodb";
 import dotenv from "dotenv";
 import MoviesDAO from './dao/moviesDAO.js';
+import ReviewsDAO from './dao/reviewsDAO.js';
 
 
 //creating async functions to connect to mongodb cluster
@@ -22,7 +23,7 @@ async function main () {
         
         await MoviesDAO.injectDB(client);
         //right after connecting to database, call injectDB to get initial reference
-
+        await ReviewsDAO.injectDB(client);
         //start web server next if no errors
         app.listen(port, ()=> {
             console.log(`server is running on port ${port}`);
