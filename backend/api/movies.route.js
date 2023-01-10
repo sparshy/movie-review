@@ -13,4 +13,11 @@ router
     .put(ReviewsController.apiUpdateReview)
     .delete(ReviewsController.apiDeleteReview)
 //handles post put and delete http request within this one route /review
+
+router.route("/id/:id").get(MoviesController.apiGetMoviesById);
+router.route("/ratings").get(MoviesController.apiGetRatings);
+
+
+
+
 export default router;
