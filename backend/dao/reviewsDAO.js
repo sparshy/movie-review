@@ -67,3 +67,4 @@ export default class ReviewsDAO{
 
 
 }
+// insertOne deleteOne updateOne are mongodb methods

@@ -11,6 +11,6 @@ router
     .route('/review')
     .post(ReviewsController.apiPostReview)
     .put(ReviewsController.apiUpdateReview)
-    .delete(ReviewsController.apiDeletReview)
+    .delete(ReviewsController.apiDeleteReview)
 //handles post put and delete http request within this one route /review
 export default router;

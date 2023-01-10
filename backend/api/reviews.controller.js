@@ -7,7 +7,7 @@ export default class ReviewsController {
             const review= req.body.review;
             const userInfo={
                 name: req.body.name,
-                _id: req.body.uder_id
+                _id: req.body.user_id
             }
 
             const date= new Date();
@@ -45,7 +45,7 @@ export default class ReviewsController {
             res.json({status:"success"})
         }
         catch(e){
-            res.json(500).json({error:e.message});
+            res.status(500).json({error:e.message});
         }
     }
 
