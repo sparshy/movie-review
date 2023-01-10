@@ -14,23 +14,21 @@ export default class MoviesDAO {
             console.error(`unable to coonect in moviesdao : ${e}`);
         }
     }
-}
 
-static async getMovies ({
-    filters=null,
-    page=0,
-    moviesPerPage=20,
-}={}){
-    let query
-        if("title" in filters){
-            query = {$text:{$search:filters['title']}}
-        } else if ("rated" in filters){
-            query = { "rated": {$eq:filters['rated']}}
+    static async getMovies ({
+        filters=null,
+        page=0,
+        moviesPerPage=20,
+    }={}){
+        let query
+        if(filters){
+            if("title" in filters){
+                query = {$text:{$search:filters['title']}}
+            } else if ("rated" in filters){
+                query = { "rated": {$eq:filters['rated']}}
+            }
         }
-
-}
-
-let cursor 
+        let cursor 
 try { 
     cursor = await movies
     .find(query)
@@ -44,4 +42,9 @@ try {
 catch(e) {
     console.error(`unable to issue find command, ${e}`);
     return {moviesList:[], totalNumMovies:0};
+}    
+    }
 }
+
+
+
