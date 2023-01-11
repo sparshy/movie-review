@@ -21,3 +21,5 @@ class MovieDataService{
     //
 
 }
+
+export default new MovieDataService();
